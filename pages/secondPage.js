@@ -2,14 +2,13 @@ import React from 'react'
 import { Keyboard, StyleSheet, Alert} from 'react-native';
 import { TaskContext } from '../taskConntextProvider';
 import { Input, Container , Header , Item, Content, Textarea , Form , Button, Left, Body, Title, Right, Icon } from 'native-base';
-import {Text , Image} from 'react-native';
-import Images from './images.png'
+import {Text } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Realm from 'realm';
 
 export default function SecondPage(props) {
 
-    const [tasks , setTasks ] = React.useContext(TaskContext);
+    const [ tasks ,  setTasks ] = React.useContext(TaskContext);
     const [title , setTitle ] = React.useState("");
     const [description , setDesc] = React.useState("");
 
@@ -80,9 +79,6 @@ export default function SecondPage(props) {
                     <Right />
                 </Header>
                     <Content>
-
-                        <Image source={Images} style={{flex : 1 , alignSelf : "center" , alignContent : "center" , alignContent : "center"  , height : 100 , width : 100 , marginTop : 20 }}/>
-
                         <Text style={{flex : 1 , textAlign : "center" , fontSize : 30, marginTop : 10}}>
                             Add Note
                         </Text>

@@ -22,7 +22,6 @@ export default function Notes(props) {
     .then(realm=>{
       const notes = realm.objects('note_details');
       setTasks(notes);
-      console.log(notes);
     })
   },[])
 
@@ -63,18 +62,20 @@ export default function Notes(props) {
         data={tasks}
         renderItem={({item}) => (
           <TouchableOpacity style={style.list}>
+            <View onPress={() => props.navigation.navigate('singleNote' , {note : item})}>
             <Text
-              style={{fontSize: 20, color: '#f5f0e3'}}
+              style={{fontSize: 20, color: '#453C73'}}
               onPress={() => props.navigation.navigate('singleNote' , {note : item})}
             >
               {item.title}
             </Text>
-            <Icon
-              onPress={() => props.navigation.navigate('singleNote' , {note : item})}
-              name="star"
-              style={{color: "#f7d695" }}
-            />
+            <Text style={{color : "#f5f0e3" , fontSize : 15 , marginBottom : 10 , marginTop : 10}}>
+              {item.description}
+            </Text>
+            </View>
+            
             <Icon name="trash" onPress={()=>removeData(item)}/>
+            
           </TouchableOpacity>
         )}
       />
